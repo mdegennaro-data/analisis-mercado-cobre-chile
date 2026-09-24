@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Raw_Produccion_2014_2023","Raw_Produccion_2004_2013","Produccion_Cobre","fact_produccion_regional","fact_produccion_condicion","fact_produccion_escenarios","fact_balance_mercado","fact_produccion_mundial","fact_demanda_mundial"]
+annotation PBI_QueryOrder = ["Raw_Produccion_2014_2023","Raw_Produccion_2004_2013","Produccion_Cobre","fact_produccion_regional","fact_produccion_condicion","fact_produccion_escenarios","fact_balance_mercado","fact_produccion_mundial","fact_demanda_mundial","Raw_Produccion_2024_2025"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 

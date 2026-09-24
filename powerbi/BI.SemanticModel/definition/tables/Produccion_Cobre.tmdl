@@ -35,7 +35,7 @@ table Produccion_Cobre
 		mode: import
 		source =
 				let
-				    Origen = Table.Combine({Raw_Produccion_2004_2013, Raw_Produccion_2014_2023})
+				    Origen = Table.Combine({Raw_Produccion_2004_2013, Raw_Produccion_2014_2023, Raw_Produccion_2024_2025})
 				in
 				    Origen
 

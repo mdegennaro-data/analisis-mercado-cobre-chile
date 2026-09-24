@@ -1,21 +1,29 @@
 {
-  "name": "Custom",
-  "textClasses": {
-    "label": {
-      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
-    },
-    "title": {
-      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
-    }
-  },
+  "name": "Mercado del Cobre - Chile",
   "dataColors": [
     "#C86428",
     "#1E293B",
-    "#0F172A",
-    "#F8FAFC",
-    "#E044A7",
-    "#744EC2",
+    "#94A3B8",
     "#D9B300",
-    "#D64550"
-  ]
+    "#744EC2",
+    "#0E7C86",
+    "#D64550",
+    "#475569"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1E293B",
+  "tableAccent": "#C86428",
+  "good": "#1E8E5A",
+  "neutral": "#D9B300",
+  "bad": "#D64550",
+  "textClasses": {
+    "label": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+      "color": "#1E293B"
+    },
+    "title": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+      "color": "#1E293B"
+    }
+  }
 }

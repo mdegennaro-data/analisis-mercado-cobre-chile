@@ -44,6 +44,14 @@ table _Medidas
 		formatString: 0
 		lineageTag: 3e0faba8-ad71-4300-8ab3-1e59fc713011
 
+	measure 'Produccion Total (Ton)' = [Produccion Total] * 1000
+		formatString: 0
+		lineageTag: 4f6a1d2e-9c3b-4e7f-a1d5-6b8e2f0c9a3d
+
+	measure 'Proyeccion Esperada (Ton)' = [Proyeccion Esperada] * 1000
+		formatString: 0
+		lineageTag: 7d3e5f1a-2b4c-4d8e-9f0a-1c6b3e5d7f2a
+
 	column Indicador
 		isHidden
 		lineageTag: 59f5446b-e265-4625-91a0-86c30aa7dd7a

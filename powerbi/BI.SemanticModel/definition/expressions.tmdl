@@ -40,3 +40,20 @@ expression Raw_Produccion_2004_2013 =
 
 	annotation PBI_ResultType = Table
 
+expression Raw_Produccion_2024_2025 =
+		let
+		    Origen = #table(
+		        type table [Empresa = text, Anio = Int64.Type, Toneladas = number],
+		        {
+		            {"Total Nacional (dato preliminar Cochilco/INE, sin desglose por empresa)", 2024, 5500},
+		            {"Total Nacional (dato preliminar Cochilco/INE, sin desglose por empresa)", 2025, 5415.271}
+		        }
+		    )
+		in
+		    Origen
+	lineageTag: 8f2b3c1a-5d6e-4a9f-b3c2-7e1d9f4a6b0c
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
