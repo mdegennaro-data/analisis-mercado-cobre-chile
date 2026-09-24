@@ -1,0 +1,68 @@
+table _Medidas
+	lineageTag: e0053d87-2bcd-402c-82e5-3d12cae3d736
+
+	measure 'Produccion Total' = SUM(Produccion_Cobre[Toneladas])
+		lineageTag: 0a9d673f-b0a4-4498-aaa6-a1fb72a2ae0a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Produccion Año Anterior' =
+			
+			CALCULATE(
+			    [Produccion Total],
+			    REMOVEFILTERS(dim_anio),
+			    dim_anio[Anio] = MAX(dim_anio[Anio]) - 1
+			)
+		lineageTag: e41efc49-62cd-4fdb-97f4-12c999add233
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variacion % Interanual' = ```
+			
+			DIVIDE(
+			    [Produccion Total] - [Produccion Año Anterior], 
+			    [Produccion Año Anterior],
+			    0
+			)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 5dabf3f1-e384-4c2f-abcd-8b7af34f65be
+
+	measure 'Participacion % Empresa' = ```
+			
+			DIVIDE(
+			    [Produccion Total], 
+			    CALCULATE([Produccion Total], REMOVEFILTERS(Produccion_Cobre[Empresa])),
+			    0
+			)
+			```
+		lineageTag: ab2450ec-24ee-44de-a714-ec5e64f7d886
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Proyeccion Esperada' = CALCULATE(SUM(fact_produccion_escenarios[Toneladas]), fact_produccion_escenarios[Escenario] = "Producción Esperada")
+		formatString: 0
+		lineageTag: 3e0faba8-ad71-4300-8ab3-1e59fc713011
+
+	column Indicador
+		isHidden
+		lineageTag: 59f5446b-e265-4625-91a0-86c30aa7dd7a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Indicador]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Indicador", STRING,
+				    {
+				        { "Medidas del Proyecto" }
+				    }
+				)
+
+	annotation PBI_Id = 6c95bcc6a51c498d9ba23116e2255cec
+

@@ -1,0 +1,52 @@
+table fact_produccion_escenarios
+	lineageTag: 56791475-d6eb-4b79-94ae-4df14337af7a
+
+	column Escenario
+		dataType: string
+		lineageTag: 7cf44a53-4d77-4749-83a6-60627f4e1853
+		summarizeBy: none
+		sourceColumn: Escenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c613a0cb-8606-45f8-9c5d-db04c2388925
+		summarizeBy: none
+		sourceColumn: Anio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Toneladas
+		dataType: int64
+		formatString: 0
+		lineageTag: 14c259a5-0779-4497-84df-598dee8451a0
+		summarizeBy: sum
+		sourceColumn: Toneladas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_produccion_escenarios = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\Maximiliano\OneDrive\Escritorio\proyecto github\analisis-mercado-cobre-chile\proyeccion_produccion_2025_2034 - page 26.xlsx"), null, true),
+				    #"Table 2_Sheet" = Origen{[Item="Table 2",Kind="Sheet"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Table 2_Sheet",{{"Column1", type text}, {"Column2", Int64.Type}, {"Column3", Int64.Type}, {"Column4", Int64.Type}, {"Column5", Int64.Type}, {"Column6", Int64.Type}, {"Column7", Int64.Type}, {"Column8", Int64.Type}, {"Column9", Int64.Type}, {"Column10", Int64.Type}, {"Column11", Int64.Type}}),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tipo cambiado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Producción [tpa Cu Fino]", type text}, {"2025", Int64.Type}, {"2026", Int64.Type}, {"2027", Int64.Type}, {"2028", Int64.Type}, {"2029", Int64.Type}, {"2030", Int64.Type}, {"2031", Int64.Type}, {"2032", Int64.Type}, {"2033", Int64.Type}, {"2034", Int64.Type}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado1",{{"Producción [tpa Cu Fino]", "Escenario"}}),
+				    #"Otras columnas con anulación de dinamización" = Table.UnpivotOtherColumns(#"Columnas con nombre cambiado", {"Escenario"}, "Atributo", "Valor"),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Otras columnas con anulación de dinamización",{{"Atributo", "Anio"}, {"Valor", "Toneladas"}}),
+				    #"Tipo cambiado2" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Anio", Int64.Type}, {"Toneladas", Int64.Type}})
+				in
+				    #"Tipo cambiado2"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

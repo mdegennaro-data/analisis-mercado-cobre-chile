@@ -1,0 +1,17 @@
+table dim_anio
+	lineageTag: 6d2b69b5-e7b3-4328-b50d-c7ec0f1c4803
+
+	column Anio
+		formatString: 0
+		lineageTag: c1d7c87d-303d-4c61-bf8b-757666322615
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_anio = calculated
+		mode: import
+		source = GENERATESERIES(2000, 2035, 1)
+
+	annotation PBI_Id = ad05a8f9511d4c10ad5ef29a1ab57cbf
+

@@ -1,0 +1,138 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.59\"},\"customTheme\":{\"name\":\"Custom7512377415381275.json\",\"type\":1,\"version\":\"5.65\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Custom7512377415381275.json",
+            "path": "Custom7512377415381275.json",
+            "type": 201
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Página 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "883e508ba2ee20048a7d",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0c723409711b480ca1b9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":575.8054711246201,\"y\":91.42857142857143,\"z\":4000,\"width\":215.92705167173253,\"height\":149.7872340425532,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fact_produccion_escenarios.Toneladas)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_produccion_escenarios\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Toneladas\"}},\"Function\":0},\"Name\":\"Sum(fact_produccion_escenarios.Toneladas)\",\"NativeReferenceName\":\"Suma de Toneladas\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Toneladas\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Outer'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"a1fc09832e66504497ed\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fact_produccion_escenarios\"}},\"Property\":\"Escenario\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_produccion_escenarios\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Escenario\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Producción Esperada'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+          "height": 149.79,
+          "width": 215.93,
+          "x": 575.81,
+          "y": 91.43,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"5647c1979117843b1287\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":91.42857142857143,\"z\":3000,\"width\":274.2857142857143,\"height\":149.7872340425532,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Produccion Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Produccion Total\"},\"Name\":\"_Medidas.Produccion Total\",\"NativeReferenceName\":\"Produccion Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Produccion Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Outer'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 149.79,
+          "width": 274.29,
+          "x": 0.00,
+          "y": 91.43,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"63b04b27e0bd81430023\",\"layouts\":[{\"id\":0,\"position\":{\"x\":923.0395136778116,\"y\":0,\"z\":1000,\"width\":194.52887537993922,\"height\":91.42857142857143,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_anio.Anio\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_anio\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Anio\"},\"Name\":\"dim_anio.Anio\",\"NativeReferenceName\":\"Anio\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"slider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 91.43,
+          "width": 194.53,
+          "x": 923.04,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"88b1a567787820702235\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1119.5136778115502,\"y\":0,\"z\":2000,\"width\":160.48632218844986,\"height\":91.42857142857143,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_pais_region.Ambito\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_pais_region\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ambito\"},\"Name\":\"dim_pais_region.Ambito\",\"NativeReferenceName\":\"Ambito\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 91.43,
+          "width": 160.49,
+          "x": 1119.51,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"910bb97b5adabbc43943\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.72644376899696,\"y\":22.37082066869301,\"z\":0,\"width\":913.3130699088147,\"height\":45.714285714285715,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Mercado del Cobre en Chile: Análisis Histórico y Proyecciones\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"20pt\",\"color\":\"#1e293b\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 45.71,
+          "width": 913.31,
+          "x": 9.73,
+          "y": 22.37,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"9634eac302e00c17c7a0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":830.6382978723404,\"y\":258.72340425531917,\"z\":8000,\"width\":429.90881458966567,\"height\":301.5197568389058,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_produccion_regional.Region\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(fact_produccion_regional.Toneladas)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_produccion_regional\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Region\"},\"Name\":\"fact_produccion_regional.Region\",\"NativeReferenceName\":\"Region\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Toneladas\"}},\"Function\":0},\"Name\":\"Sum(fact_produccion_regional.Toneladas)\",\"NativeReferenceName\":\"Suma de Toneladas\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Toneladas\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 301.52,
+          "width": 429.91,
+          "x": 830.64,
+          "y": 258.72,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"c17322b16b0130b63d55\",\"layouts\":[{\"id\":0,\"position\":{\"x\":336.53495440729483,\"y\":91.42857142857143,\"z\":6000,\"width\":194.52887537993922,\"height\":149.7872340425532,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Variacion % Interanual\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Variacion % Interanual\"},\"Name\":\"_Medidas.Variacion % Interanual\",\"NativeReferenceName\":\"Variacion % Interanual\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Variacion % Interanual\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Outer'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 149.79,
+          "width": 194.53,
+          "x": 336.53,
+          "y": 91.43,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"ca55707b852c4627942d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":834.5288753799392,\"y\":91.42857142857143,\"z\":5000,\"width\":211.06382978723406,\"height\":149.7872340425532,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fact_balance_mercado.Miles_Toneladas)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_balance_mercado\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Miles_Toneladas\"}},\"Function\":0},\"Name\":\"Sum(fact_balance_mercado.Miles_Toneladas)\",\"NativeReferenceName\":\"Suma de Miles_Toneladas\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Miles_Toneladas\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Outer'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"c3278e282c581860003b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fact_balance_mercado\"}},\"Property\":\"Concepto\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_balance_mercado\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Concepto\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Balance'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+          "height": 149.79,
+          "width": 211.06,
+          "x": 834.53,
+          "y": 91.43,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"e5a8e599937291072650\",\"layouts\":[{\"id\":0,\"position\":{\"x\":441.580547112462,\"y\":258.72340425531917,\"z\":9000,\"width\":404.62006079027356,\"height\":254.8328267477204,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_anio.Anio\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(fact_produccion_mundial.Miles_Toneladas)\"}],\"Y2\":[{\"queryRef\":\"Sum(fact_demanda_mundial.Miles_Toneladas)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_anio\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_produccion_mundial\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"fact_demanda_mundial\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Anio\"},\"Name\":\"dim_anio.Anio\",\"NativeReferenceName\":\"Anio\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Miles_Toneladas\"}},\"Function\":0},\"Name\":\"Sum(fact_produccion_mundial.Miles_Toneladas)\",\"NativeReferenceName\":\"Suma de Miles_Toneladas\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Miles_Toneladas\"}},\"Function\":0},\"Name\":\"Sum(fact_demanda_mundial.Miles_Toneladas)\",\"NativeReferenceName\":\"Suma de Miles_Toneladas1\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Miles_Toneladas\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 254.83,
+          "width": 404.62,
+          "x": 441.58,
+          "y": 258.72,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"f12598ace9c429303e36\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":258.72340425531917,\"z\":7000,\"width\":441.580547112462,\"height\":254.8328267477204,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_anio.Anio\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Produccion Total\"}],\"Y2\":[{\"queryRef\":\"_Medidas.Proyeccion Esperada\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_anio\",\"Type\":0},{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Anio\"},\"Name\":\"dim_anio.Anio\",\"NativeReferenceName\":\"Anio\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Produccion Total\"},\"Name\":\"_Medidas.Produccion Total\",\"NativeReferenceName\":\"Produccion Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Proyeccion Esperada\"},\"Name\":\"_Medidas.Proyeccion Esperada\",\"NativeReferenceName\":\"Proyeccion Esperada\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Produccion Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}},\"selector\":{\"metadata\":\"_Medidas.Produccion Total\"}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"_Medidas.Proyeccion Esperada\"}}],\"lineStyles\":[{\"properties\":{\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'dotted'\"}}}},\"selector\":{\"metadata\":\"_Medidas.Proyeccion Esperada\"}}]}}}",
+          "filters": "[]",
+          "height": 254.83,
+          "width": 441.58,
+          "x": 0.00,
+          "y": 258.72,
+          "z": 7000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Custom7512377415381275.json"
+}

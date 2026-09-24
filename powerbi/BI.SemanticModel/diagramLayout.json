@@ -1,0 +1,164 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 171,
+        "y": 50
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 229,
+            "y": 124
+          },
+          "nodeIndex": "Produccion_Cobre",
+          "nodeLineageTag": "6e59cc56-e290-49dd-becd-a5da6e7e8951",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 434,
+            "y": 344
+          },
+          "nodeIndex": "fact_produccion_regional",
+          "nodeLineageTag": "069df6f9-ba38-4a28-b8a1-5eb0be150d41",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 112
+          },
+          "nodeIndex": "fact_produccion_condicion",
+          "nodeLineageTag": "153bf0fd-2b11-439d-bfe2-43664f66efcc",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 767,
+            "y": 350
+          },
+          "nodeIndex": "fact_produccion_escenarios",
+          "nodeLineageTag": "56791475-d6eb-4b79-94ae-4df14337af7a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 938,
+            "y": 116
+          },
+          "nodeIndex": "fact_balance_mercado",
+          "nodeLineageTag": "70da29e5-3c00-4bbd-80dd-5c531c8330fb",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1138,
+            "y": 347
+          },
+          "nodeIndex": "fact_demanda_mundial",
+          "nodeLineageTag": "f097ba2f-27f6-48b4-80fb-e64bbea9f4ed",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1290,
+            "y": 108
+          },
+          "nodeIndex": "fact_produccion_mundial",
+          "nodeLineageTag": "701dd7bf-4695-4a83-a5c6-1590a186a0ea",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 766,
+            "y": 594
+          },
+          "nodeIndex": "dim_anio",
+          "nodeLineageTag": "6d2b69b5-e7b3-4328-b50d-c7ec0f1c4803",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1465,
+            "y": 323
+          },
+          "nodeIndex": "dim_pais_region",
+          "nodeLineageTag": "f30a8976-0182-4800-8aaf-984d61ad7e2b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18,
+            "y": 330
+          },
+          "nodeIndex": "dim_tipo_producto",
+          "nodeLineageTag": "43b18ba9-fc5e-42c1-8bae-27291e8fc368",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1731,
+            "y": 279
+          },
+          "nodeIndex": "_Medidas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

@@ -1,0 +1,45 @@
+table Produccion_Cobre
+	lineageTag: 6e59cc56-e290-49dd-becd-a5da6e7e8951
+
+	column Empresa
+		dataType: string
+		lineageTag: c2b858b2-40ed-433d-9399-4688708ce193
+		summarizeBy: none
+		sourceColumn: Empresa
+
+		annotation SummarizationSetBy = Automatic
+
+	column Anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 32c14746-7655-4f4d-bd53-f2c51490bb7a
+		summarizeBy: none
+		sourceColumn: Anio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Toneladas
+		dataType: double
+		lineageTag: 1a1bdc72-7fd8-4d80-99a9-6d14f0c6ea4a
+		summarizeBy: sum
+		sourceColumn: Toneladas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Produccion_Cobre = m
+		mode: import
+		source =
+				let
+				    Origen = Table.Combine({Raw_Produccion_2004_2013, Raw_Produccion_2014_2023})
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

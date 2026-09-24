@@ -1,0 +1,70 @@
+table fact_produccion_regional
+	lineageTag: 069df6f9-ba38-4a28-b8a1-5eb0be150d41
+
+	column Region
+		dataType: string
+		lineageTag: 31d1c199-7bba-450b-85a6-fbeb1d06077d
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Producto
+		dataType: string
+		lineageTag: 1d678db5-d447-4372-b4d2-04de47334ff7
+		summarizeBy: none
+		sourceColumn: Tipo_Producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2fa9412e-21b3-43c7-843d-c24f5c4e85a4
+		summarizeBy: none
+		sourceColumn: Anio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Toneladas
+		dataType: int64
+		formatString: 0
+		lineageTag: 18f6e626-680b-45f7-b707-e149dd44390c
+		summarizeBy: sum
+		sourceColumn: Toneladas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_produccion_regional = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\Maximiliano\OneDrive\Escritorio\proyecto github\analisis-mercado-cobre-chile\proyeccion_produccion_2025_2034.xlsx"), null, false),
+				    #"Table 1_sheet" = Origen{[Item="Table 1",Kind="Sheet"]}[Data],
+				    FilterNullAndWhitespace = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Table 1_sheet", List.Select(Table.ColumnNames(#"Table 1_sheet"), each try not List.IsEmpty(FilterNullAndWhitespace(Table.Column(#"Table 1_sheet", _))) otherwise true)),
+				    #"Filas en blanco eliminadas" = Table.SelectRows(#"Otras columnas quitadas", each not List.IsEmpty(FilterNullAndWhitespace(Record.FieldValues(_)))),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas en blanco eliminadas",{{"Column1", type text}, {"Column2", Int64.Type}, {"Column3", Int64.Type}, {"Column4", Int64.Type}, {"Column5", Int64.Type}, {"Column6", Int64.Type}, {"Column7", Int64.Type}, {"Column8", Int64.Type}, {"Column9", Int64.Type}, {"Column10", Int64.Type}, {"Column11", Int64.Type}}),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tipo cambiado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Producción Regional [tpa Cu Fino]", type text}, {"2025", Int64.Type}, {"2026", Int64.Type}, {"2027", Int64.Type}, {"2028", Int64.Type}, {"2029", Int64.Type}, {"2030", Int64.Type}, {"2031", Int64.Type}, {"2032", Int64.Type}, {"2033", Int64.Type}, {"2034", Int64.Type}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Tipo cambiado1","Cãtodos","Cátodos",Replacer.ReplaceText,{"Producción Regional [tpa Cu Fino]"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Valor reemplazado", each true),
+				    #"Personalizada agregada" = Table.AddColumn(#"Filas filtradas", "Personalizado", each if [#"Producción Regional [tpa Cu Fino]"] <> "Concentrado" and [#"Producción Regional [tpa Cu Fino]"] <> "Cátodos" and [#"Producción Regional [tpa Cu Fino]"] <> "Total" then [#"Producción Regional [tpa Cu Fino]"] else null),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Personalizada agregada",{{"Personalizado", "Region"}}),
+				    #"Rellenar hacia abajo" = Table.FillDown(#"Columnas con nombre cambiado",{"Region"}),
+				    #"Filas filtradas1" = Table.SelectRows(#"Rellenar hacia abajo", each ([#"Producción Regional [tpa Cu Fino]"] = "Concentrado" or [#"Producción Regional [tpa Cu Fino]"] = "Cátodos")),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Filas filtradas1",{{"Producción Regional [tpa Cu Fino]", "Tipo_Producto"}}),
+				    #"Otras columnas con anulación de dinamización" = Table.UnpivotOtherColumns(#"Columnas con nombre cambiado1", {"Tipo_Producto", "Region"}, "Atributo", "Valor"),
+				    #"Columnas con nombre cambiado2" = Table.RenameColumns(#"Otras columnas con anulación de dinamización",{{"Atributo", "Anio"}, {"Valor", "Toneladas"}}),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Columnas con nombre cambiado2",{"Region", "Tipo_Producto", "Anio", "Toneladas"}),
+				    #"Tipo cambiado2" = Table.TransformColumnTypes(#"Columnas reordenadas",{{"Anio", Int64.Type}})
+				in
+				    #"Tipo cambiado2"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

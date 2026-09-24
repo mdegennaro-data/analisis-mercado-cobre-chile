@@ -1,0 +1,44 @@
+relationship 5a747d81-fe48-c58d-148e-97b8a2f2520c
+	fromColumn: fact_produccion_regional.Anio
+	toColumn: dim_anio.Anio
+
+relationship c64bceaa-97ca-1bde-b3ff-e9dd4df17ac5
+	fromColumn: fact_produccion_escenarios.Anio
+	toColumn: dim_anio.Anio
+
+relationship 407348fd-d875-d5b6-0ba4-b4ebbb0bcfa9
+	fromColumn: fact_demanda_mundial.Anio
+	toColumn: dim_anio.Anio
+
+relationship 2d089dff-d8f7-11ea-22ed-c7d941d470a5
+	fromColumn: fact_balance_mercado.Anio
+	toColumn: dim_anio.Anio
+
+relationship bab6e0bd-201c-68ce-e0d0-d781ed70fc27
+	fromColumn: fact_produccion_mundial.Anio
+	toColumn: dim_anio.Anio
+
+relationship 9ebeb37c-dc30-96e2-c77c-cd8466313605
+	fromColumn: fact_produccion_condicion.Anio
+	toColumn: dim_anio.Anio
+
+relationship 065c0559-c812-22e1-b3da-fa9a026fac81
+	fromColumn: Produccion_Cobre.Anio
+	toColumn: dim_anio.Anio
+
+relationship cdefe9fe-a7a5-f714-a869-ae7024ab34fb
+	fromColumn: fact_produccion_mundial.País
+	toColumn: dim_pais_region.Ubicacion
+
+relationship eaf4dbfc-a750-2072-5e79-3a29c2d42300
+	fromColumn: fact_demanda_mundial.País/Región
+	toColumn: dim_pais_region.Ubicacion
+
+relationship d17b9386-63fd-c14b-2f35-1e033ac3c9a4
+	fromColumn: fact_produccion_regional.Region
+	toColumn: dim_pais_region.Ubicacion
+
+relationship fa5792c7-6838-81da-5b8d-c7dff405b7a9
+	fromColumn: fact_produccion_regional.Tipo_Producto
+	toColumn: dim_tipo_producto.Tipo_Producto
+

@@ -1,0 +1,30 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CL
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Raw_Produccion_2014_2023","Raw_Produccion_2004_2013","Produccion_Cobre","fact_produccion_regional","fact_produccion_condicion","fact_produccion_escenarios","fact_balance_mercado","fact_produccion_mundial","fact_demanda_mundial"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.1602.0 (25.07)+10647c9fa319b5e39936cdb21328038c371d1fe4
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Produccion_Cobre
+ref table fact_produccion_regional
+ref table fact_produccion_condicion
+ref table fact_produccion_escenarios
+ref table fact_balance_mercado
+ref table fact_produccion_mundial
+ref table fact_demanda_mundial
+ref table dim_anio
+ref table dim_pais_region
+ref table dim_tipo_producto
+ref table _Medidas
+
+ref cultureInfo es-ES
+

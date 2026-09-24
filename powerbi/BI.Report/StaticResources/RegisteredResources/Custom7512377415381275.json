@@ -1,0 +1,21 @@
+{
+  "name": "Custom",
+  "textClasses": {
+    "label": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
+    },
+    "title": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
+    }
+  },
+  "dataColors": [
+    "#C86428",
+    "#1E293B",
+    "#0F172A",
+    "#F8FAFC",
+    "#E044A7",
+    "#744EC2",
+    "#D9B300",
+    "#D64550"
+  ]
+}

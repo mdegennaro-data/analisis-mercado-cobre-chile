@@ -1,0 +1,53 @@
+table dim_pais_region
+	lineageTag: f30a8976-0182-4800-8aaf-984d61ad7e2b
+
+	column Ubicacion
+		lineageTag: 818e99f4-3c91-42e8-8b73-6d2288a24ce3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ubicacion]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ambito
+		lineageTag: 3ec41eeb-8e02-49c5-bcb7-77f4cf8584bd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ambito]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_pais_region = calculated
+		mode: import
+		source = ```
+				
+				VAR RegionesChile = 
+				    SELECTCOLUMNS(
+				        fact_produccion_regional,
+				        "Ubicacion", fact_produccion_regional[Region],
+				        "Ambito", "Nacional (Chile)"
+				    )
+				VAR PaisesProduccion = 
+				    SELECTCOLUMNS(
+				        fact_produccion_mundial,
+				        "Ubicacion", fact_produccion_mundial[País],
+				        "Ambito", "Internacional"
+				    )
+				VAR PaisesDemanda = 
+				    SELECTCOLUMNS(
+				        fact_demanda_mundial,
+				        "Ubicacion", fact_demanda_mundial[País/Región],
+				        "Ambito", "Internacional"
+				    )
+				RETURN
+				    DISTINCT(
+				        UNION(
+				            RegionesChile,
+				            PaisesProduccion,
+				            PaisesDemanda
+				        )
+				    )
+				```
+
+	annotation PBI_Id = ed13e75733ee4c5eab1d22a4c298bd16
+
